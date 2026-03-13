@@ -14,9 +14,6 @@ fastify.get("/", function (req, reply) {
 });
 
 fastify.get("/instances", async function (req, reply) {
-  if (req.headers["cool-api-key"] !== process.env.API_KEY) {
-    return reply.redirect("https://coolify.io");
-  }
   if (isDev && !process.env.NOCODB_URL) {
     return { count: 0 };
   }
